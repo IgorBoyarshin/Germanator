@@ -1,0 +1,391 @@
+/*
+
+    Colors:
+    - #44E = bright
+    - #33A - dark
+
+*/
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html {
+    background-color: #44E;
+    /*height: 100%;*/
+}
+body {
+    /*height: 100%;*/
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+.horizontal {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.wrapper {
+    /*height: 100%;*/
+    display: flex;
+    flex-flow: column nowrap;
+}
+.header {
+    background-color: #44E;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    /*box-shadow: 0em 0em 1.4em 1.0em #ccc;*/
+}
+.main {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.navigation {
+    background-color: #44E;
+    width: 14em;
+}
+.navigation .listElement {
+    font-weight: bold;
+    font-size: 1.4em;
+    /*padding-bottom: 1em;*/
+    padding: 0.6em 2em 0.6em 2em;
+}
+.navigation .listElement:hover {
+    background-color: #33A;
+    /*box-shadow: 0em 0em 1.0em 0.5em #999;*/
+}
+.navigation .listElement:active {
+    background-color: #3535A5;
+    box-shadow: 0.2em 0.2em 0.5em #111 inset;
+    transform: translate(0.1em, 0.1em);
+}
+
+#injected {
+    width:100%;
+
+}
+.testingContent {
+    flex-grow: 1;
+    background-color: #44E;
+}
+.boxesContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    background-color: #33A;
+}
+.box {
+    outline: none;
+    width: 25em;
+    height: 7em;
+    font-family: Calibri;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 1em;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+.leftBox {
+    background-color: #ccc;
+    border: 2px solid #ccc;
+}
+.rightBox {
+    background-color: #eee;
+    border: 2px solid #eee;
+    resize:none;
+}
+.rightBox:focus {
+    border: 2px solid red;
+}
+.langIndicator {
+    color: rgba(80, 80, 80, 0.3);
+}
+#buttonsContainer {
+    padding: 1em 2.5em 1em 2.5em;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    background-color: #33A;
+    border-top: 3px solid #44E;
+}
+.button {
+    outline: none;
+    font-family: Calibri;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    color: #fff;
+    background-color: #7c3;
+    padding: 0.9em 1em 0.9em 1em;
+    border:none;
+    border-radius: 1em;
+
+    /*box-shadow: 0.15em 0.15em 0.6em #111;*/
+}
+.button:active {
+    transform: translate(0.1em, 0.1em);
+    box-shadow: 0.25em 0.25em 0.8em #111 inset;
+}
+.button:hover {
+    background-color: #7E3;
+}
+.button:disabled {
+    background-color: #A5A5A5;
+}
+/*#submitButton {
+    color: #fff;
+    background-color: #7c3;
+    padding: 1em;
+    border:none;
+    border-radius: 1em;
+}
+#submitButton:hover {
+    background-color: #7E3;
+}*/
+.correctAnswer {
+    padding-top: 1.1em;
+    color: #eee;
+    flex-grow: 1;
+    font-family: Calibri;
+    font-size: 1.1em;
+}
+.untilNextFlushBox {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.untilNextFlushBox > div{
+    display: inline-block;
+    padding: 1em 1.5em 1em 1.5em;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-top: 3px solid #44E;
+    background-color: #33A;
+}
+.untilNextFlushBox button {
+    /*outline: none;
+    font-family: Calibri;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;*/
+    padding: 0.9em;
+    margin-top: 3px;
+    margin-left: 0.3em;
+    /*border-radius: 1.0em;*/
+    /*background-color: #00B;*/
+    /*background-color: #7C3;
+    color: #ddd;*/
+}
+/*.untilNextFlushBox button:active {*/
+    /*background-color: #33A;*/
+    /*transform: translate(0.1em, 0.1em);
+    box-shadow: 0.2em 0.2em 0.5em #111 inset;
+}*/
+/*.untilNextFlushBox button:hover {*/
+    /*background-color: #00F;*/
+    /*background-color: #7E3;*/
+/*}*/
+
+.info > div{
+    padding-left: 15em;
+}
+
+.databaseContent {
+    /*display: flex;
+    flex-flow: column nowrap;
+    align-items: center;*/
+}
+.databaseHeader {
+    margin-bottom: 0.5em;
+    /*display: flex;
+    flex-flow: row nowrap;*/
+}
+.databaseSearchArea {
+    outline:none;
+    padding: 0.5em;
+    font-family: Calibri;
+    font-size: 1.1em;
+    resize: none;
+    border-radius: 0.5em;
+    background-color: #eee;
+}
+.databaseTables {
+    display: flex;
+    flex-flow: row nowrap;
+    /*justify-content: space-around;*/
+}
+.databaseTables table {
+    background-color: #44E;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.databaseTables table tr:nth-child(even) {
+    background-color: #33A;
+}
+.databaseTables table tr td a {
+    display: block;
+}
+/*.databaseTables table tr:nth-child(odd) {
+
+}
+.databaseTables table tr:nth-child(even) {
+    text-shadow: 0em 0em 1px #fff;
+}*/
+.databaseTables table tr:nth-child(odd) td a {
+    color: #008;
+}
+.databaseTables table tr:nth-child(even) td a {
+    color: #77F;
+}
+.databaseTables table tr td a:hover {
+    color: #F11;
+}
+.databaseTables table tr:nth-child(1) {
+    background-color: #33A;
+}
+/*.databaseTables table tr:nth-child(2) {
+    background-color: #33A;
+}*/
+.databaseTables table tr > * {
+    padding: 0.3em 0.3em 0.3em 0.3em;
+    font-family: Calibri;
+    font-size: 1.1em;
+}
+.databaseTables table th {
+    font-size: 1.2em;
+}
+.databaseTables table a {
+    display: block;
+    /*width: 100%;*/
+}
+.databaseTables table a:hover {
+    color: #ccc;
+}
+.wordTableInProgress {
+    margin-right: 2em;
+}
+
+.addNewWordContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 0.7em;
+    background-color: #33A;
+    padding: 1em;
+}
+.addNewWordContainer > * {
+    margin-right: 1em;
+    border-radius: 0.7em;
+    padding: 0.4em;
+    outline:none;
+    font-family: Calibri;
+    font-size: 1.0em;
+}
+
+
+.editWordContainer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editWordBox {
+    background-color: #33A;
+    padding: 1em;
+}
+.editWordBox > * {
+    margin-right: 1em;
+    border-radius: 0.7em;
+    padding: 0.4em;
+    outline: none;
+    font-family: Calibri;
+    font-size: 1.0em;
+}
+.editWordBox button {
+    /*outline: none;
+    font-family: Calibri;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;*/
+    padding: 0.6em;
+    /*background-color: #7C3;
+    color: #fff;*/
+}
+/*.editWordBox button:active {
+    background-color: #7C3;
+    transform: translate(0.1em, 0.1em);
+    box-shadow: 0.2em 0.2em 0.5em #111 inset;
+}
+.editWordBox button:hover {
+    background-color: #7E3;
+}*/
+
+
+.settingsContainer {
+    padding: 1em 2em 1em 0em;
+    /*flex-flow: row nowrap;*/
+
+    font-family: Calibri;
+}
+.settings input {
+    outline: none;
+}
+.settings p {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+.settings .tagsTable {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.settings .tagsTable tr:nth-child(odd) {
+    background-color: #33A;
+}
+.settings .tagsTable tr:nth-child(0) {
+    background-color: #44E;
+}
+.settings .tagsTable tr > * {
+    padding: 0.3em 0.6em 0.3em 0.6em;
+    font-family: Calibri;
+    font-size: 1.1em;
+}
+.settings .tagsTable th {
+    font-size: 1.2em;
+}
+.settings .tagsTable tr a {
+    display: block;
+}
+.settings .tagsTable tr a:hover {
+    color: #ccc;
+}
+.settings button {
+    margin-left: 0.5em;
+}
+
+
+.footer {
+    padding: 2em;
+    font-size: 1em;
+    background-color: #44E;
+    /*box-shadow: 0em 0em 1.4em 1.0em #ccc;*/
+    width: 100%;
+    text-align: center;
+
+    /*position: fixed;*/
+
+}

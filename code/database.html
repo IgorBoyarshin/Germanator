@@ -1,0 +1,67 @@
+<section class="databaseContent">
+    <div class="databaseHeader">
+        <textarea class="databaseSearchArea" id="databaseSearch" placeholder="Search database"
+            ng-model="databaseSearch" rows="1" cols="30"></textarea>
+    </div>
+
+    <div class="addNewWordContainer">
+        <input type="text" placeholder="Word" id="addWordWord">
+        <input type="text" placeholder="Translations" id="addWordTranslations">
+        <input type="text" placeholder="Tag" id="addWordTag">
+        <button class="button" ng-click="addNewWord()">Add word</button>
+    </div>
+
+    <div class="databaseTables">
+        <table class="wordTable wordTableInProgress">
+            <tr>
+                <th colspan="6">In progress | Total: {{factory.wordsDatabase.inProgress.length}}</th>
+            </tr>
+            <tr>
+                <th>#</th>
+                <th><a href="" ng-click="inpSortTableBy='w'; inpIsSortingReversed=!inpIsSortingReversed">Word</a></th>
+                <th><a href="" ng-click="inpSortTableBy='tr[0]'; inpIsSortingReversed=!inpIsSortingReversed">Translations</a></th>
+                <th><a href="" ng-click="inpSortTableBy='cc'; inpIsSortingReversed=!inpIsSortingReversed">Correct</a></th>
+                <th><a href="" ng-click="inpSortTableBy='t'; inpIsSortingReversed=!inpIsSortingReversed">Tag</a></th>
+                <th>@</th>
+            </tr>
+            <tr ng-repeat="x in factory.wordsDatabase.inProgress | filter:databaseSearch | orderBy:inpSortTableBy:inpIsSortingReversed">
+                <td><a href="" ng-click="removeElement(true, x)">X</a></td>
+                <td>{{x.w | capitalize}}</td>
+                <td><span ng-repeat="y in x.tr">{{y | capitalize}}; </span></td>
+                <td style="text-align:center;">{{x.cc}}</td>
+                <td style="text-align:center;">{{x.t}}</td>
+                <td><a ng-click="editWord(x)" href="">Edit</a></td>
+            </tr>
+        </table>
+
+        <table class="wordTable wordTableLearned">
+            <tr>
+                <th colspan="5">Learned | Total: {{factory.wordsDatabase.learned.length}}</th>
+            </tr>
+            <tr>
+                <th>#</th>
+                <th><a href="" ng-click="leaSortTableBy='w'; leaIsSortingReversed=!leaIsSortingReversed">Word</a></th>
+                <th><a href="" ng-click="leaSortTableBy='tr'; leaIsSortingReversed=!leaIsSortingReversed">Translations</a></th>
+                <th><a href="" ng-click="leaSortTableBy='t'; leaIsSortingReversed=!leaIsSortingReversed">Tag</a></th>
+                <th>@</th>
+            </tr>
+            <tr ng-repeat="x in factory.wordsDatabase.learned | filter:databaseSearch | orderBy:leaSortTableBy:leaIsSortingReversed">
+                <td><a href="" ng-click="removeElement(false, x)">X</a></td>
+                <td>{{x.w | capitalize}}</td>
+                <td><span ng-repeat="y in x.tr">{{y | capitalize}}; </span></td>
+                <td style="text-align:center;">{{x.t}}</td>
+                <td><a ng-click="editWord(x)" href="">Edit</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="editWordContainer" ng-show="isEditingWord">
+        <div class="editWordBox">
+            <input type="text" placeholder="Word" id="editWordWord">
+            <input type="text" placeholder="Translations" id="editWordTranslations">
+            <input type="text" placeholder="Tag" id="editWordTag">
+            <button class="button" ng-click="editWordSubmit()">Save changes</button>
+            <button class="button" ng-click="editWordDiscard()">Discard</button>
+        </div>
+    </div>
+</section>

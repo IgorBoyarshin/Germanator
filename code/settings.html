@@ -1,0 +1,37 @@
+<section class="settingsContent">
+    <div class="settingsContainer">
+        <div class="settings">
+            <p>Select from which tags the words must be used</p>
+
+            <div class="horizontal">
+                <table class="tagsTable" id="tagsTable">
+                    <tr>
+                        <th><a href="" ng-click="checkAllTags()">Use</a></th>
+                        <th><a href="" ng-click="sortTableBy='name'; isSortingReversed=!isSortingReversed">Tag</a></th>
+                        <th><a href="" ng-click="sortTableBy='indices[0].length'; isSortingReversed=!isSortingReversed">InProgress</a></th>
+                        <th><a href="" ng-click="sortTableBy='indices[1].length'; isSortingReversed=!isSortingReversed">Learned</a></th>
+                    </tr>
+                    <tr ng-repeat="x in factory.existingTags | orderBy:sortTableBy:isSortingReversed">
+                        <td style="text-align: center;"><input class="tagCheckbox" type="checkbox" name="tagCheckbox" value="{{x.name}}" ng-checked="x.used"></td>
+                        <td>{{x.name}}</td>
+                        <td style="text-align: center;">{{x.indices[0].length}}</td>
+                        <td style="text-align: center;">{{x.indices[1].length}}</td>
+                    </tr>
+                </table>
+
+                <div>
+                    <button class="button" ng-click="saveCurrentUsedTags()">
+                        Save
+                    </button>
+                </div>
+            </div>
+<!--
+            </br>
+            <p>Secect a mark for your main and secondary language. </br>
+            Main - the language that you are learning. </br>
+            Secondary - the language that you translate stuff with.</p>
+            Main: <input type="text" name="mainLangMark" value="ger"><br>
+            Secondary: <input type="text" name="mainLangMark" value="eng"><br> -->
+        </div>
+    </div>
+</section>

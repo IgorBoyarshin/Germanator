@@ -1,0 +1,33 @@
+<section class="testingContent">
+    <div class="boxesContainer">
+        <div class="box leftBox">
+                <!-- {{factory.currentWord | displayTranslationsIfNeeded | capitalize}} -->
+            {{(isGermanWordGiven ? factory.currentWord.w : (factory.currentWord.tr | arrayToString)) | capitalize}}
+            <span class="langIndicator">{{isGermanWordGiven ? factory.mainLangMark : factory.secondaryLangMark}}</span>
+        </div>
+
+        <textarea class="box rightBox" id="userAnswerField" placeholder="Type answer here"
+            ng-keypress="onSubmitKeyDown($event)" ng-model="usersAnswer"></textarea>
+    </div>
+
+    <div id="buttonsContainer">
+        <div class="correctAnswer" ng-show="showCorrectAnswer > 0">
+            <p>
+                <span ng-show="showCorrectAnswer == 2">All translations:</span>
+                <span ng-show="showCorrectAnswer == 1">Corect answer:</span>
+
+                <span>{{isGermanWordGiven ? arrayToStringCapitalize(factory.currentWord.tr) : (factory.currentWord.w | capitalize)}}</span>
+                <!-- <span ng-repeat="x in factory.currentWord.tr">{{x | capitalize}}<span>; </span></span> -->
+            </p>
+        </div>
+        <button class="button" id="submitButton" type="submit" ng-click="submit()" ng-disabled="usersAnswer == ''">{{factory.submitButtonText}}</button>
+    </div>
+
+    <div class="untilNextFlushBox">
+        <div>
+            <p>Until next save: {{factory.testsUntilNextSave}}</p>
+        </div>
+
+        <button class="button" ng-click="flushDatabase()">Save</button>
+    </div>
+</section>

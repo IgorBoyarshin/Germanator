@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Germanator</title>
+
+    <script src="..\angular\angular.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <p>Germanator</p>
+    </header>
+
+    <section class="main" ng-app="mainApp" ng-controller="mainCtrl">
+        <nav class="navigation">
+            <div class="listElement" ng-repeat="navigationElement in navigationElements">
+                {{navigationElement}}
+            </div>
+        </nav>
+
+        <section class="content">
+
+            <div id="boxesContainer">
+                <div class="box">
+                    
+                    {{wordsDatabase[0].word}}
+                </div>
+
+                <div class="box">
+                    {{wordsDatabase[0].translation}}
+                </div>
+            </div>
+
+            <!-- <p ng-repeat="x in wordsDatabase">
+                {{x.word}}
+            </p> -->
+        </section>
+    </section>
+
+    <footer class="footer">
+        <p>Made by Igor Boiarshyn</p>
+    </footer>
+
+    <script src="mainModule.js"></script>
+</body>
+</html>

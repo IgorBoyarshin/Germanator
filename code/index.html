@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Germanator</title>
+
+    <script src="..\angular\angular.min.js"></script>
+    <script src="..\angular\angular-route.min.js"></script>
+
+    <link rel="shortcut icon" href="..\database\icon.ico">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="wrapper" ng-app="mainApp">
+        <header class="header">
+            <p>Germanator</p>
+        </header>
+
+        <section class="main">
+            <nav class="navigation" ng-controller="testingCtrl">
+                <div ng-repeat="navigationElement in factory.navigationElements">
+                    <a href="#{{navigationElement}}">
+                        <div class="listElement">
+                            {{navigationElement | capitalize}}
+                        </div>
+                    </a>
+                </div>
+            </nav>
+
+            <section id="injected" ng-view>
+
+            </section>
+
+        </section>
+
+        <footer class="footer">
+            <p>Made by Igor Boiarshyn</p>
+            <p>Copyright (c) 2015 WhateverYouWannaCallIt. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="mainModule.js"></script>
+    <script src="testingCtrl.js"></script>
+    <script src="databaseCtrl.js"></script>
+    <script src="settingsCtrl.js"></script>
+</body>
+</html>
